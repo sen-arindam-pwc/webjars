@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>WebJars: Example</title>
+  <link rel="stylesheet" href="/css/frontend.css">
+</head>
+<body>
+<h1>Greeter</h1>
+<p>
+  <label for="greetingInput">Please enter your name:</label>
+  <input id="greetingInput" type="text"/>
+</p>
+<p>
+  <code>
+    <span id="greetingResponse"></span>
+  </code>
+</p>
+<script type="module">
+  import GreetingService from '/js/GreetingService.js';
+
+  const greetingService = new GreetingService();
+
+  const inputElement = document.getElementById('greetingInput');
+
+  function update(message) {
+    document.getElementById('greetingResponse').innerText = message;
+  }
+
+  async function fetchAndUpdate(name) {
+    try {
+      const responseBody = await greetingService.greet(name);
+      update(responseBody['message']);
+    } catch (error) {
+      console.error('Fetching the greeting failed.', error);
+      alert('Fetching the greeting failed; please look into the console for the error.');
+    }
+  }
+
+  inputElement.addEventListener('input', async (event) => {
+    await fetchAndUpdate(event.target.value);
+  });
+
+  // "onload" : Fetch greeting after page has been loaded:
+  (async () => {
+    await fetchAndUpdate('');
+  })();
+</script>
+</body>
+</html>

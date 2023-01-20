@@ -1,0 +1,22 @@
+##
+# IDE Stuff
+#
+
+# IntelliJ
+*.iml
+.idea
+
+##
+# Build Systems
+#
+
+# Gradle
+.gradle/
+build/
+
+##
+# Environment Configuration
+#
+# Note: Other .env files than the following may be desired to be managed by git.
+#
+.env.local
