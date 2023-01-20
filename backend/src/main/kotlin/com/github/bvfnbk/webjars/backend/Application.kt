@@ -2,6 +2,7 @@ package com.github.bvfnbk.webjars.backend
 
 import com.github.bvfnbk.webjars.backend.framework.plugins.configureRouting
 import com.github.bvfnbk.webjars.backend.framework.plugins.configureSerialization
+import com.github.bvfnbk.webjars.backend.framework.plugins.configureWebJars
 import io.ktor.server.application.Application
 import io.ktor.server.cio.CIO
 import io.ktor.server.engine.embeddedServer
@@ -21,4 +22,5 @@ fun main() {
 fun Application.module() {
     configureSerialization()
     configureRouting()
+    configureWebJars()
 }

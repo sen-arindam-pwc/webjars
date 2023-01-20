@@ -14,9 +14,20 @@
 .gradle/
 build/
 
+# Apache Maven
+target/
+.mvn/
+!maven-wrapper.properties
+!maven-wrapper.jar
+
 ##
 # Environment Configuration
 #
 # Note: Other .env files than the following may be desired to be managed by git.
 #
 .env.local
+
+##
+# Project Stuff
+#
+tmp/
