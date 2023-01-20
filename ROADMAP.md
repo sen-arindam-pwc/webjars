@@ -11,18 +11,24 @@ This is the first MVP.
 - The `backend` serves a "Greeter" REST endpoint.
 - The `frontend` contains a simple form request a "Greeting".
 
-## 2.0 (Build Webjar)
+## 2.0 (Use Apache Maven for Building)
 
-- There is a `build` command/script in the `frontend` module which creates a WebJAR (a `jar` file) _somewhere_.
-- There is an `install` command/script which deploys the `jar` file into the local Maven repository such that the
-  `backend` is able to actually use it.
-- There is an `uninstall` command/script which removes the `frontend` artifact again.
-- The service uses the created WebJar and does
+The `frontend` artifact is built using _Apache Maven_. The assets are accessible at
 
-## 2.1 (Use Apache Maven for Building)
+```shell
+/assets/webjars-frontend/js/GreetingService.js
+/assets/webjars-frontend/css/frontend.css
+/assets/webjars-frontend/index.html
+```
 
-- The `frontend` artifact is now built by _Apache Maven_ and may as such be installed into the local cache as well.
-- Removing the artifact from the local repository must still be done using the script.
+The `index.html` has been updated to include the assets using the updated paths.
+
+**Please note:** The `default` page does not work anymore.
+
+## 2.1 (Split WebJar)
+
+The `index.html` is currently served from the WebJar. This leads to a unconvenient path for the browser (the full
+prefix is required). The file should be served from the _backend_.
 
 ## 3.0 (Gradle)
 
