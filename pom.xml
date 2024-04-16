@@ -34,7 +34,16 @@
         </destDir>
     </properties>
 
-    <plugin>
+    
+    <build>
+        <resources>
+            <resource>
+                <directory>${project.basedir}/src/main/resources</directory>
+                <targetPath>${destDir}</targetPath>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
     <groupId>io.github.slsa-framework.slsa-github-generator</groupId>
     <artifactId>hash-maven-plugin</artifactId>
     <version>0.0.1</version>
@@ -50,13 +59,7 @@
     </configuration>
 </plugin>
 
-    <build>
-        <resources>
-            <resource>
-                <directory>${project.basedir}/src/main/resources</directory>
-                <targetPath>${destDir}</targetPath>
-            </resource>
-        </resources>
+        </plugins>
     </build>
 
    
