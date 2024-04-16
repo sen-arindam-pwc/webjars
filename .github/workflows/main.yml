@@ -1,6 +1,9 @@
 name: Provenance_Java_CI_with_Maven
-on: [push]
+on:
+  - workflow_dispatch
+
 permissions: read-all
+
 jobs:
   build:
     permissions:
