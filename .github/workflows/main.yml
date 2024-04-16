@@ -1,0 +1,10 @@
+name: Provenance_Java_CI_with_Maven
+on: [push]
+permissions: read-all
+jobs:
+  build:
+    permissions:
+      id-token: write
+      contents: read
+      actions: read
+    uses: slsa-framework/slsa-github-generator/.github/workflows/builder_maven_slsa3.yml@v1.10.0
