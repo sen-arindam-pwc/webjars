@@ -34,6 +34,22 @@
         </destDir>
     </properties>
 
+    <plugin>
+    <groupId>io.github.slsa-framework.slsa-github-generator</groupId>
+    <artifactId>hash-maven-plugin</artifactId>
+    <version>0.0.1</version>
+    <executions>
+        <execution>
+            <goals>
+                <goal>hash-jarfile</goal>
+            </goals>
+        </execution>
+    </executions>
+    <configuration>
+        <outputJsonPath>${SLSA_OUTPUTS_ARTIFACTS_FILE}</outputJsonPath>
+    </configuration>
+</plugin>
+
     <build>
         <resources>
             <resource>
@@ -43,20 +59,5 @@
         </resources>
     </build>
 
-    <plugin>
-      <groupId>io.github.slsa-framework.slsa-github-generator</groupId>
-        <artifactId>hash-maven-plugin</artifactId>
-           <version>0.0.1</version>
-              <executions>
-                  <execution>
-                      <goals>
-                          <goal>hash-jarfile</goal>
-                      </goals>
-                   </execution>
-              </executions>
-              <configuration>
-                   <outputJsonPath>${SLSA_OUTPUTS_ARTIFACTS_FILE}</outputJsonPath>
-              </configuration>
-       </plugin>
-
+   
 </project>
